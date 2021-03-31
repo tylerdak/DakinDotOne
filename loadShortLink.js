@@ -7,7 +7,7 @@ var key = "keyQNh4jP1NqeDsDG"
 
 const status1Error = "404"
 const status2Error = "Page not found 😭"
-const descriptionError = `The page you were looking for doesn't exist, maybe check for cAsE or spelling errors? Alternatively, you can have this page redirect somewhere on the <a href="/">home page.`
+const descriptionError = `The page you were looking for doesn't exist, maybe check for cAsE or spelling errors?`
 
 function setResult(status1, status2, statusDescription) {
     document.getElementById("status1").innerHTML = status1

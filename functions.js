@@ -1,21 +1,20 @@
-function getRandomStringOfLength(len) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+// The entirety of this file is irrelevant to my version of this project because the web client no longer creates the URLs
+// I've left it in here, though, in case you want to use these. Just add some text fields and a button somewhere and then link this file
 
-    for (var i = 0; i < len; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
+// Make sure you password protect it though, otherwise anyone can create as many URLs as they want which you probably don't want.
+
+// Optional, label your URLs for your own sake. Unnecessary if you make your URLs make sense (dakin.one/myYouTubeChannel instead of dakin.one/mYTC)
+/*
+function getLabelInput() {
+    var label = document.getElementById("labelInput").value.trim();
+    if (label.length <= 0) {
+        return "error"
+    }
+    else {
+        return label
+    }
 }
-
-// function getLabelInput() {
-//     var label = document.getElementById("labelInput").value.trim();
-//     if (label.length <= 0) {
-//         return "error"
-//     }
-//     else {
-//         return label
-//     }
-// }
+*/
 
 function getURL() {
     var url = document.getElementById("urlInput").value;
@@ -39,8 +38,10 @@ function getShortPath() {
 }
 
 function logNewURL() {
+    // Change your endpoint based on whatever your AirTable API docs say, this is my table, so you won't be able to do much with this endpoint.
     const endpoint = "https://api.airtable.com/v0/appv1hzGCBsemfbdc/URL%20Info"
 
+    // Uncomment if using the label code, you'll also need to add the necessary code to the data validation and data string.
     // const label = getLabelInput()
     const originalURL = getURL()
     const shortPath = getShortPath()
