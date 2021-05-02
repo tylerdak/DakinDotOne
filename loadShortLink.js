@@ -1,3 +1,7 @@
+function sayWhatTheyreLookingFor() {
+    setResult("Looking for redirect...","Shortcut: " + path, "")
+ }
+
 
 var records;
 
@@ -8,6 +12,16 @@ var key = "keyQNh4jP1NqeDsDG"
 const status1Error = "404"
 const status2Error = "Page not found 😭"
 const descriptionError = `The page you were looking for doesn't exist, maybe check for cAsE or spelling errors?`
+
+const urlPathParts = window.location.pathname.split('/')
+var path = urlPathParts.slice(1).join("/")
+var subPath = ""
+if (urlPathParts.length > 2) {
+    subPath = urlPathParts.slice(2).join("/")
+}
+const firstPathPart = urlPathParts[1]
+
+sayWhatTheyreLookingFor()
 
 function setResult(status1, status2, statusDescription) {
     document.getElementById("status1").innerHTML = status1
@@ -48,9 +62,10 @@ function getCurrentData() {
     
 }
 
+
+
 function printRecords() {
-    const urlPathParts = window.location.pathname.split('/')
-    const firstPathPart = urlPathParts[1]
+    
 
     console.log(firstPathPart)
 
@@ -68,12 +83,15 @@ function printRecords() {
         setResult(status1Error, status2Error, descriptionError)
     }
     else {
-        setResult("Found it!", "Redirecting you now...","")
-
-        console.log(selectedRecord.fields.originalURL)
         const fields = selectedRecord.fields;
+        const finalURL = fields.originalURL + "/" + subPath
+        document.getElementById("statusDescription").style.textAlign = "center";
+        setResult("Found it!", "Redirecting you now to:", `<a href=finalURL>${finalURL}</a>`)
+
+        console.log(finalURL)
         
-        window.location.replace(fields.originalURL);
+        
+        window.location.replace(finalURL);
 
         
     }
