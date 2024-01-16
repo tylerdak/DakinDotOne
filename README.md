@@ -1,0 +1,1 @@
+Note: This repo is now archived. When the AirTable team [announced that API keys were being deprecated](https://support.airtable.com/docs/airtable-api-key-deprecation-notice), I decided to rewrite dakin.one as a full application.
